@@ -1,16 +1,3 @@
-// class Dish {
-//   final String name;
-//   final String image; // asset path (assets/images/...) or a network URL starting with http
-//   final double price;
-//   final String? desc;
-//
-//   Dish({
-//     required this.name,
-//     required this.image,
-//     required this.price,
-//     this.desc,
-//   });
-// }
 
 
 // lib/models/dish.dart
