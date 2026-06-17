@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "835852346464",
+    "project_id": "mom-s-magic-d103d",
+    "storage_bucket": "mom-s-magic-d103d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835852346464:android:beebfa4eccd10cad494f05",
+        "android_client_info": {
+          "package_name": "com.example.moms_magic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP1Ij6bXtUbtfwgNKQYgN1wOkZTzSMR98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
