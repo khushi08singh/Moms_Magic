@@ -160,6 +160,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Container(
+            height: 1,
+            color: Colors.black12,
+          ),
+        ),
       ),
 
       // ✅ BODY
@@ -243,12 +250,69 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Featured Dishes 🍽️",
-                style:
-                TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            // const Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 16),
+            //   child: Text(
+            //     "Featured Dishes 🍽️",
+            //     style:
+            //     TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            //   ),
+            // ),
+            // const Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 16),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text(
+            //         "Featured Dishes 🍽️",
+            //         style: TextStyle(
+            //           fontSize: 22,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //       Text(
+            //          "Top Picks",
+            //
+            //         style: TextStyle(
+            //           color: Colors.pink,
+            //           fontWeight: FontWeight.w600,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Featured Dishes 🍽️",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.pink.shade50,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Text(
+                      "Top Picks",
+                      style: TextStyle(
+                        color: Colors.pink,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -280,10 +344,18 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     },
+                    // child: Card(
+                    //   shape: RoundedRectangleBorder(
+                    //       borderRadius: BorderRadius.circular(15)),
+                    //   elevation: 4,
                     child: Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      elevation: 4,
+                        borderRadius: BorderRadius.circular(15),
+                        side: BorderSide(
+                          color: Colors.grey.shade200,
+                        ),
+                      ),
+                      elevation: 6,
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Column(
@@ -361,12 +433,41 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/dishes');
                 },
+                // style: ElevatedButton.styleFrom(
+                //   backgroundColor: Colors.pink,
+                //   padding: const EdgeInsets.symmetric(
+                //       horizontal: 30, vertical: 15),
+                // ),
+
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 30, vertical: 15),
+                  minimumSize: const Size(220, 55),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  elevation: 5,
                 ),
-                child: const Text("View All Dishes"),
+
+                // child: const Text("View All Dishes"),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "View All Dishes",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                  ],
+                ),
               ),
             ),
 
