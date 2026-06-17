@@ -66,9 +66,17 @@ class MyOrdersPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Text(
+                      //   "Order ID: ${order.id}",
+                      //   style: const TextStyle(fontWeight: FontWeight.bold),
+                      // ),
+
                       Text(
-                        "Order ID: ${order.id}",
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        "Order #${order.id.substring(0, 8)}",
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
 
                       const SizedBox(height: 8),
@@ -94,17 +102,45 @@ class MyOrdersPage extends StatelessWidget {
               const SizedBox(height: 8),
 
                       // 🔥 STATUS ROW
+                      // Row(
+                      //   children: [
+                      //     const Text(
+                      //       "Status: ",
+                      //       style: TextStyle(fontWeight: FontWeight.bold),
+                      //     ),
+                      //     Text(
+                      //       status.toUpperCase(),
+                      //       style: TextStyle(
+                      //         color: getStatusColor(status),
+                      //         fontWeight: FontWeight.bold,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                       Row(
                         children: [
                           const Text(
                             "Status: ",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            status.toUpperCase(),
                             style: TextStyle(
-                              color: getStatusColor(status),
                               fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              color: getStatusColor(status).withOpacity(0.15),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              status.toUpperCase(),
+                              style: TextStyle(
+                                color: getStatusColor(status),
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
@@ -112,9 +148,17 @@ class MyOrdersPage extends StatelessWidget {
 
                       const SizedBox(height: 6),
 
+                      // Text(
+                      //   "Total: ₹${order['totalAmount']}",
+                      //   style: const TextStyle(fontWeight: FontWeight.bold),
+                      // ),
                       Text(
                         "Total: ₹${order['totalAmount']}",
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          color: Colors.green,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
