@@ -169,21 +169,77 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Padding(
+            //   padding: const EdgeInsets.all(16),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       const Text(
+            //         "Welcome 👋",
+            //         style: TextStyle(
+            //             fontSize: 20, fontWeight: FontWeight.bold),
+            //       ),
+            //       Text(
+            //         userEmail,
+            //         style: const TextStyle(color: Colors.grey),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
             Padding(
               padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Welcome 👋",
-                    style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    userEmail,
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                ],
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 28,
+                      backgroundColor: Colors.pink.shade100,
+                      child: const Icon(
+                        Icons.person,
+                        size: 30,
+                        color: Colors.pink,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Welcome Back 👋",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            userEmail,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
