@@ -19,6 +19,9 @@ class _DishesPageState extends State<DishesPage> {
   bool isLoading = true;
   String _selectedCategory = 'All';
 
+  final TextEditingController _searchController =
+  TextEditingController();
+
   final List<String> _categories = [
     'All',
     'Breakfast',
@@ -57,12 +60,31 @@ class _DishesPageState extends State<DishesPage> {
     });
   }
 
+  // void _filter(String category) {
+  //   setState(() {
+  //     _selectedCategory = category;
+  //     _filteredDishes = category == 'All'
+  //         ? _allDishes
+  //         : _allDishes.where((d) => d.category == category).toList();
+  //   });
+  // }
   void _filter(String category) {
+    _selectedCategory = category;
+    _searchDishes(_searchController.text);
+  }
+  void _searchDishes(String query) {
     setState(() {
-      _selectedCategory = category;
-      _filteredDishes = category == 'All'
-          ? _allDishes
-          : _allDishes.where((d) => d.category == category).toList();
+      _filteredDishes = _allDishes.where((dish) {
+        final matchesCategory = _selectedCategory == 'All'
+            ? true
+            : dish.category == _selectedCategory;
+
+        final matchesSearch = dish.name
+            .toLowerCase()
+            .contains(query.toLowerCase());
+
+        return matchesCategory && matchesSearch;
+      }).toList();
     });
   }
 
@@ -78,6 +100,23 @@ class _DishesPageState extends State<DishesPage> {
           ? const Center(child: CircularProgressIndicator())
           : Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: TextField(
+              controller: _searchController,
+              onChanged: _searchDishes,
+              decoration: InputDecoration(
+                hintText: "Search dishes...",
+                prefixIcon: const Icon(Icons.search),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.all(8),
