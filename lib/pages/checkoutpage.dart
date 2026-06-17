@@ -147,17 +147,100 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       FieldValue.serverTimestamp(),
                     });
 
+                    // cartProvider.clearCart();
+                    //
+                    // ScaffoldMessenger.of(context)
+                    //     .showSnackBar(
+                    //   const SnackBar(
+                    //     content:
+                    //     Text("Order placed successfully 🎉"),
+                    //   ),
+                    // );
+                    //
+                    // Navigator.pop(context);
+
                     cartProvider.clearCart();
 
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(
-                      const SnackBar(
-                        content:
-                        Text("Order placed successfully 🎉"),
-                      ),
-                    );
+                    if (!mounted) return;
 
-                    Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const CircleAvatar(
+                                radius: 35,
+                                backgroundColor: Color(0xFFE8F5E9),
+                                child: Icon(
+                                  Icons.check_circle,
+                                  color: Colors.green,
+                                  size: 45,
+                                ),
+                              ),
+
+                              const SizedBox(height: 16),
+
+                              const Text(
+                                "Order Placed Successfully 🎉",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              const SizedBox(height: 8),
+
+                              const Text(
+                                "Your order has been received.",
+                                textAlign: TextAlign.center,
+                              ),
+
+                              const SizedBox(height: 20),
+
+                              SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.pink,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      '/my-orders',
+                                          (route) => false,
+                                    );
+                                  },
+                                  child: const Text(
+                                    "View My Orders",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    '/home',
+                                        (route) => false,
+                                  );
+                                },
+                                child: const Text("Continue Shopping"),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
