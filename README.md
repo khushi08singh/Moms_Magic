@@ -177,7 +177,7 @@ flutterfire configure
 - Checkout Screen
 - My Orders Screen
 
-> Screenshots will be added soon.
+
 
 ---
 
