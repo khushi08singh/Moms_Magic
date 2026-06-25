@@ -1,79 +1,3 @@
-// import 'package:flutter/material.dart';
-//
-// class DishCard extends StatelessWidget {
-//   final String name;
-//   final int price;
-//   final String image;
-//
-//   const DishCard({
-//     super.key,
-//     required this.name,
-//     required this.price,
-//     required this.image,
-//
-//   });
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       elevation: 4,
-//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           ClipRRect(
-//             borderRadius: const BorderRadius.only(
-//               topLeft: Radius.circular(16),
-//               topRight: Radius.circular(16),
-//             ),
-//             child: Image.asset(
-//               image,
-//               width: double.infinity,
-//               height: 180,
-//               fit: BoxFit.cover,
-//             ),
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.all(12),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(
-//                   name,
-//                   style: const TextStyle(
-//                     fontSize: 18,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//                 const SizedBox(height: 6),
-//                 Text(
-//                   "₹$price",
-//                   style: const TextStyle(
-//                     fontSize: 16,
-//                     color: Colors.green,
-//                   ),
-//                 ),
-//                 const SizedBox(height: 10),
-//                 ElevatedButton(
-//                   onPressed: () {},
-//                   style: ElevatedButton.styleFrom(
-//                     backgroundColor: Colors.deepPurple,
-//                     shape: RoundedRectangleBorder(
-//                       borderRadius: BorderRadius.circular(12),
-//                     ),
-//                   ),
-//                   child: const Text("Order Now"),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
 
 class DishCard extends StatelessWidget {
@@ -105,16 +29,55 @@ class DishCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-            ),
-            child: Image.asset(
-              image,
-              width: double.infinity,
-              height: 180,
-              fit: BoxFit.cover,
+          // ClipRRect(
+          //   borderRadius: const BorderRadius.only(
+          //     topLeft: Radius.circular(16),
+          //     topRight: Radius.circular(16),
+          //   ),
+          //   child: Image.asset(
+          //     image,
+          //     width: double.infinity,
+          //     height: 180,
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
+          SizedBox(
+            height: 180,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
+                  child: Image.asset(
+                    image,
+                    width: double.infinity,
+                    height: 180,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(6),
+                      child: Icon(
+                        Icons.favorite_border,
+                        color: Colors.red,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Padding(
@@ -167,7 +130,7 @@ class DishCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text("Add to Cart"),
+                  child: const Text("+ Add"),
                 ),
               ],
             ),

@@ -202,6 +202,54 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 textAlign: TextAlign.center,
                               ),
 
+                              // const SizedBox(height: 20),
+                              //
+                              // SizedBox(
+                              //   width: double.infinity,
+                              //   child: ElevatedButton(
+                              //     style: ElevatedButton.styleFrom(
+                              //       backgroundColor: Colors.pink,
+                              //     ),
+                              // //     onPressed: () {
+                              // //       Navigator.pop(context);
+                              // //       Navigator.pushNamedAndRemoveUntil(
+                              // //         context,
+                              // //         '/my-orders',
+                              // //             (route) => false,
+                              // //       );
+                              // //     },
+                              // //     child: const Text(
+                              // //       "View My Orders",
+                              // //       style: TextStyle(color: Colors.white),
+                              // //     ),
+                              // //   ),
+                              // // ),
+                              //     onPressed: () {
+                              //       Navigator.pop(context);
+                              //
+                              //       Navigator.pushNamed(
+                              //         context,
+                              //         '/my-orders',
+                              //       );
+                              //     },
+                              //     child: const Text(
+                              //       "View My Orders",
+                              //       style: TextStyle(
+                              //         color: Colors.white,
+                              //       ),
+                              //     ),
+                              //
+                              // TextButton(
+                              //   onPressed: () {
+                              //     Navigator.pop(context);
+                              //     Navigator.pushNamedAndRemoveUntil(
+                              //       context,
+                              //       '/home',
+                              //           (route) => false,
+                              //     );
+                              //   },
+                              //   child: const Text("Continue Shopping"),
+                              // ),
                               const SizedBox(height: 20),
 
                               SizedBox(
@@ -212,15 +260,17 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   ),
                                   onPressed: () {
                                     Navigator.pop(context);
-                                    Navigator.pushNamedAndRemoveUntil(
+
+                                    Navigator.pushNamed(
                                       context,
                                       '/my-orders',
-                                          (route) => false,
                                     );
                                   },
                                   child: const Text(
                                     "View My Orders",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -228,6 +278,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context);
+
                                   Navigator.pushNamedAndRemoveUntil(
                                     context,
                                     '/home',

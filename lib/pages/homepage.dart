@@ -90,6 +90,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
+
+
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text("Home"),
@@ -99,7 +101,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             ListTile(
-              leading: const Icon(Icons.restaurant),
+              leading: const Icon(Icons.restaurant_menu),
               title: const Text("All Dishes"),
               onTap: () {
                 Navigator.pop(context);
@@ -117,7 +119,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             ListTile(
-              leading: const Icon(Icons.shopping_cart),
+              leading: const Icon(Icons.shopping_bag_outlined),
               title: const Text("Cart"),
               onTap: () {
                 Navigator.pop(context);
