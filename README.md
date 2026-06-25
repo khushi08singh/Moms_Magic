@@ -177,6 +177,47 @@ flutterfire configure
 - Checkout Screen
 - My Orders Screen
 
+## 📸 Application Screens
+
+### Login Screen
+
+![Login](assets/screenshots/login.png)
+
+---
+
+### Home Screen
+
+![Home](assets/screenshots/home.png)
+
+---
+
+### All Dishes
+
+![Dishes](assets/screenshots/dishes.png)
+
+---
+
+### Cart
+
+![Cart](assets/screenshots/cart.png)
+
+---
+
+### Checkout
+
+![Checkout](assets/screenshots/checkout.png)
+
+---
+
+### Order Success
+
+![Success](assets/screenshots/success.png)
+
+---
+
+### My Orders
+
+![Orders](assets/screenshots/orders.png)
 
 
 ---
